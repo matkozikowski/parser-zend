@@ -17,7 +17,7 @@ class MkparserController extends AbstractActionController
 
 	public function indexAction(){}
 
- /**
+ 	/**
 	* Handle for ajax request, necessary to create results file txt.
 	*
 	* @return JsonModel
@@ -56,18 +56,18 @@ class MkparserController extends AbstractActionController
 	public function downloadAction()
 	{
 		$fileUrl = $this->getBaseUrl() . '/data/profil.txt';
-    $fileContents = file_get_contents($fileUrl);
+    	$fileContents = file_get_contents($fileUrl);
 
-    $response = $this->getResponse();
-    $response->setContent($fileContents);
+    	$response = $this->getResponse();
+    	$response->setContent($fileContents);
 
-    $headers = $response->getHeaders();
-    $headers->clearHeaders()
+    	$headers = $response->getHeaders();
+    	$headers->clearHeaders()
         ->addHeaderLine('Content-Type', 'whatever your content type is')
         ->addHeaderLine('Content-Disposition', 'attachment; filename="profil.txt"')
         ->addHeaderLine('Content-Length', strlen($fileContents));
 
-    return $this->response;
+    	return $this->response;
 	}
 
 	/**
@@ -132,7 +132,7 @@ class MkparserController extends AbstractActionController
 	private function saveQueryDomFile($value)
 	{
 		$file = getcwd() . '/public/data/profil.txt';
-    file_put_contents($file, $value);
+    	file_put_contents($file, $value);
 	}
 
 	/**
